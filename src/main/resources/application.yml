@@ -1,0 +1,20 @@
+server:
+  port: 8081
+  error:
+    include-binding-errors: always
+
+spring:
+  application:
+    name: film-producer-manager
+  jpa:
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+
+springfox:
+  documentation:
+    swagger-ui:
+      base-url: /docs
+    swagger:
+      v2:
+        path: /docs/v2
