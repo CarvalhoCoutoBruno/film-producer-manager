@@ -2,7 +2,7 @@ package com.texo.filmproducer.util;
 
 import java.util.Arrays;
 
-public class StringUtils {
+public class CustomStringUtils {
     private static final String SPLIT_REGEX = ",|\\band\\b";
 
     public static String[] splitProducers(String producers) {

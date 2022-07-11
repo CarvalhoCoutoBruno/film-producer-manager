@@ -17,6 +17,7 @@ public class MovieEntity {
     private Integer year;
 
     @CsvBindByPosition(position = 1)
+    @Column(unique = true)
     private String title;
 
     @CsvBindByPosition(position = 2)
