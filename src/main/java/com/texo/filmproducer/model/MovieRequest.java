@@ -11,7 +11,6 @@ import javax.validation.constraints.NotNull;
 @Data
 public class MovieRequest {
     @NotNull(message = "year is mandatory.")
-    @Max(value = 2022, message = "year must not be in the future.")
     @Min(value = 1888, message = "First movie was released in 1888.")
     @ApiModelProperty("The movie release date.")
     private Integer year;

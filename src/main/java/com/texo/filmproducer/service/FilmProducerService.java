@@ -79,36 +79,17 @@ public class FilmProducerService {
 
         Collections.sort(producerPrizeList);
 
-        final var producerInterval = getProducerMaxInterval(producerPrizeList);
-
-        producerIntervalsResponse.add(producerInterval);
-
-        final var producerIntervals = getProducerMinIntervals(producerPrizeList);
+        final var producerIntervals = getProducerIntervals(producerPrizeList);
 
         producerIntervalsResponse.addAll(producerIntervals);
 
         return producerIntervalsResponse;
     }
 
-    private FilmProducerIntervalResponse getProducerMaxInterval(final List<ProducerPrizeYearDTO> producerPrizeList) {
-        final var producerName = producerPrizeList.get(0).getName();
-        final var minYear = producerPrizeList.get(0).getYear();
-        final var maxYear = producerPrizeList.get(producerPrizeList.size() - 1).getYear();
-
-        var producerInterval = new FilmProducerIntervalResponse();
-
-        producerInterval.setProducer(producerName);
-        producerInterval.setPreviousWin(minYear);
-        producerInterval.setFollowingWin(maxYear);
-        producerInterval.setInterval(maxYear - minYear);
-
-        return producerInterval;
-    }
-
-    private List<FilmProducerIntervalResponse> getProducerMinIntervals(final List<ProducerPrizeYearDTO> producerPrizeList) {
+    private List<FilmProducerIntervalResponse> getProducerIntervals(final List<ProducerPrizeYearDTO> producerPrizeList) {
         final var producerIntervals = new ArrayList<FilmProducerIntervalResponse>();
 
-        if (producerPrizeList.size() > 2) {
+        if (producerPrizeList.size() > 1) {
             final var listIterator = producerPrizeList.listIterator();
             var producerPrizeYear = listIterator.next();
 
